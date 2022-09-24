@@ -10,7 +10,7 @@
 - [Railsをはじめよう](https://railsguides.jp/getting_started.html)
 - [Rails テスティングガイド](https://railsguides.jp/testing.html)
 - [クィックスタート: Compose と Rails](https://docs.docker.jp/compose/rails.html)
-- [Rails のシステム テストを Docker で実行する](https://nicolasiensen.github.io/2022-03-11-running-rails-system-tests-with-docker/)
+- [Running Rails' system tests with Docker](https://nicolasiensen.github.io/2022-03-11-running-rails-system-tests-with-docker/)
 
 ## 開発メモ
 ### Docker
