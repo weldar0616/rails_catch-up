@@ -61,7 +61,7 @@ $ bin/rails generate model Article title:string body:text
       create      test/models/article_test.rb
       create      test/fixtures/articles.yml
 
-# DBマイグレーション
+# DBマイグレーション - アップ
 $ bin/rails db:migrate # サーバで直接実行する場合
 $ docker-compose run --rm web rails db:migrate # Docker経由の場合
 Creating rails_catch-up_web_run ... done
@@ -69,6 +69,14 @@ Creating rails_catch-up_web_run ... done
 -- create_table(:articles)
    -> 0.2077s
 == 20220923122107 CreateArticles: migrated (0.2078s) ==========================
+
+# DBマイグレーション - ダウン
+$ bin/rails db:migrate:down VERSION=20220923160052
+== 20220923160052 CreateComments: reverting ===================================
+-- drop_table(:comments)
+   -> 0.0747s
+== 20220923160052 CreateComments: reverted (0.1363s) ==========================
+
 
 # ルーティング一覧
 $ bin/rails routes
