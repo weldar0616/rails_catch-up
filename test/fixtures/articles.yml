@@ -2,8 +2,10 @@
 
 one:
   title: MyString
-  body: MyText
+  body: MyTextBody
+  status: public
 
 two:
   title: MyString
-  body: MyText
+  body: MyTextBody
+  status: public
