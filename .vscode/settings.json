@@ -1,0 +1,18 @@
+{
+  // ruby
+  "ruby.lint": {
+    "rubocop": true
+  },
+  "[ruby]": {
+    "editor.formatOnSave": true
+  },
+  "ruby.format": "rubocop",
+
+  "files.associations": {
+    "*.erb": "erb"
+  },
+  "[erb]": {
+    "editor.defaultFormatter": "aliariff.vscode-erb-beautify",
+    "editor.formatOnSave": true,
+  },
+}
