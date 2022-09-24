@@ -5,6 +5,13 @@ class CommentsController < ApplicationController
     redirect_to article_path(@article)
   end
 
+  def destroy
+    @artice = Article.find(params[:article_id])
+    @comment = @artice.comments.find(params[:id])
+    @comment.destroy
+    redirect_to article_path(@artice), status: 303
+  end
+
   private
 
   def comment_params
