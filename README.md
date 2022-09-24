@@ -7,8 +7,10 @@
 ## ref.
 - [20分ではじめるRuby](https://www.ruby-lang.org/ja/documentation/quickstart/)
 - [PHPからRubyへ](https://www.ruby-lang.org/ja/documentation/ruby-from-other-languages/to-ruby-from-php/)
-- [Rails をはじめよう](https://railsguides.jp/getting_started.html)
+- [Railsをはじめよう](https://railsguides.jp/getting_started.html)
+- [Rails テスティングガイド](https://railsguides.jp/testing.html)
 - [クィックスタート: Compose と Rails](https://docs.docker.jp/compose/rails.html)
+- [Rails のシステム テストを Docker で実行する](https://nicolasiensen.github.io/2022-03-11-running-rails-system-tests-with-docker/)
 
 ## 開発メモ
 ### Docker
@@ -26,20 +28,21 @@ $ docker exec -it 563e648ce374 /bin/bash
 ```
 # プロジェクトビルド
 $ docker-compose run web rails new . --force --database=postgresql
+$ docker-compose run サービス [コマンド] [引数...]
 
 # Dockerイメージビルド
 $ docker-compose build
 
 # アプリ起動
 $ docker-compose up
-
-# DB生成
-$ docker-compose run web rake db:create
 ```
 
 ### Rails
 
 ```
+# プロジェクトビルド
+$ bin/rails new .
+
 # コントローラー生成
 $ bin/rails generate controller Articles index --skip-routes # config/routes.rbにルーティングを記述した場合は--skip-routesでルーティングの追加をスキップできる
       create  app/controllers/articles_controller.rb
@@ -60,6 +63,9 @@ $ bin/rails generate model Article title:string body:text
       invoke    test_unit
       create      test/models/article_test.rb
       create      test/fixtures/articles.yml
+
+# DB生成
+$ bin/rake db:create
 
 # DBマイグレーション - アップ
 $ bin/rails db:migrate # サーバで直接実行する場合
@@ -91,4 +97,11 @@ $ bin/rails routes
                  PUT    /articles/:id(.:format)               articles#update
                  DELETE /articles/:id(.:format)               articles#destroy
 ...
+
+
+# テスティング
+$ bin/rails test test/models/article_test.rb
+
+# テスティング - システムテスト
+$ bin/rails test:system
 ```
